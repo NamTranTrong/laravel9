@@ -16,3 +16,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::prefix('categories')->group(function(){
+
+    Route::get('/',[
+        'as' => 'category.index',
+        'uses' => 'CategoryController@index'
+    ]);
+
+    Route::get('/create',[
+        'as' => 'category.create',
+        'uses' => 'CategoryController@create'
+    ]);
+});
