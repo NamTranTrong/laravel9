@@ -7,16 +7,16 @@
 @section('content')
     <div class="content-wrapper" style="min-height: 358.4px;">
         <!-- Content Header (Page header) -->
-        @include('partials.content-header',['name' => 'Danh Mục' , 'key' => 'Thêm mới'])
+        @include('partials.content-header',['name' => 'Danh Mục' , 'key' => 'Chỉnh Sửa'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="{{route('category.store')}}" method="post">
+                        <form action="{{route('category.update',['id' => $category->id])}}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên Danh Mục</label>
-                                <input type="text" class="form-control" name="name" placeholder="Nhập tên danh mục">
+                                <input type="text" class="form-control" name="name" value="{{$category->name}}" placeholder="Nhập tên danh mục">
                             </div>
                             <div class="form-group">
                                 <label for="">Chọn Danh Mục Cha</label>

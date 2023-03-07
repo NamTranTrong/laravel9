@@ -32,4 +32,19 @@ Route::prefix('categories')->group(function(){
         'as' => 'category.create',
         'uses' => 'CategoryController@create'
     ]);
+
+    Route::post('/post',[
+        'as' => 'category.store',
+        'uses' => 'CategoryController@store'
+    ]);
+
+    Route::get('/edit/{id}',[
+        'as' => 'category.edit',
+        'uses' => 'CategoryController@edit',
+    ]);
+
+    Route::post('/update/{id}',[
+        'as' => 'category.update',
+        'uses' => 'CategoryController@update',
+    ]);
 });
