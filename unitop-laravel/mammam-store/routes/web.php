@@ -47,4 +47,24 @@ Route::prefix('categories')->group(function(){
         'as' => 'category.update',
         'uses' => 'CategoryController@update',
     ]);
+
+    Route::get('/delete/{id}',[
+        'as' => 'category.delete',
+        'uses' => 'CategoryController@delete',
+    ]);
 });
+
+    Route::prefix('menus')->group(function(){
+
+        Route::get('/',[
+            'as' => 'menu.index',
+            'uses' => 'MenuController@index',
+        ]);
+
+        Route::get('/add',[
+            'as' => 'menu.create',
+            'uses' => 'MenuController@create'
+        ]);
+
+
+    });

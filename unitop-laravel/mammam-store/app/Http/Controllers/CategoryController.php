@@ -58,4 +58,10 @@ class CategoryController extends Controller
 
         return redirect(route('category.index'));
     }
+
+    public function delete($id){
+        $category = $this->category->find($id)->delete();
+        
+        return redirect(route('category.index'));
+    }
 }

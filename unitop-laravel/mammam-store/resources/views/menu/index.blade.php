@@ -1,17 +1,17 @@
 @extends('layouts.admin')
 
 @section('title')
-    <title>Danh Mục</title>
+    <title>Menu</title>
 @endsection
 
 @section('content')
     <div class="content-wrapper" style="min-height: 358.4px;">
-        @include('partials.content-header',['name' => 'Danh Mục', 'key' => 'Danh sách'])
+        @include('partials.content-header',['name' => 'Menu', 'key' => 'Danh sách'])
         <div class="content">
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-12">
-                <a href="{{route('category.create')}}">
+                <a href="{{route('menu.create')}}">
                   <button class="btn btn-success float-right mb-2">
                   Thêm mới
                   </button>
@@ -22,15 +22,15 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Tên Danh Mục</th>
+                      <th scope="col">Tên Menu</th>
                       <th scope="col">Action</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  {{--  <tbody>
                    @php
                        $i=0;
                    @endphp
-                    @foreach ($categories as $category )
+                    @foreach ($menus as $menu )
                       <tr>
                         <th scope="row">{{$i}}</th>
                         <td>{{$category->name}}</td>
@@ -43,12 +43,12 @@
                       $i++;
                     @endphp
                     @endforeach
-                  </tbody>
+                  </tbody>  --}}
                 </table>
               </div>
-              <div class="col-md-12">
+              {{--  <div class="col-md-12">
                 {{ $categories->links('vendor.pagination.custom') }}
-              </div>
+              </div>  --}}
             </div>
           </div>
         </div>
