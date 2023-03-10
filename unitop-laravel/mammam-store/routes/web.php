@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/login','AdminController@loginAdmin');
+
+Route::post('/login','AdminController@postLoginAdmin');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -33,7 +37,7 @@ Route::prefix('categories')->group(function(){
         'uses' => 'CategoryController@create'
     ]);
 
-    Route::post('/post',[
+    Route::post('/store',[
         'as' => 'category.store',
         'uses' => 'CategoryController@store'
     ]);
@@ -65,6 +69,28 @@ Route::prefix('categories')->group(function(){
             'as' => 'menu.create',
             'uses' => 'MenuController@create'
         ]);
+
+        Route::post('/store',[
+            'as' => 'menu.store',
+            'uses' => 'MenuController@store',
+        ]);
+
+        Route::get('/edit/{id}',[
+            'as' => 'menu.edit',
+            'uses' => 'MenuController@edit',
+        ]);
+
+        Route::post('/update/{id}',[
+            'as' => 'menu.update',
+            'uses' => 'MenuController@update',
+        ]);
+
+        Route::get('/delete/{id}',[
+            'as' => 'menu.delete',
+             'uses' => 'MenuController@delete',
+        ]);
+
+
 
 
     });

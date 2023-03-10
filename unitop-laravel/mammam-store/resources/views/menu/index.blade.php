@@ -26,29 +26,29 @@
                       <th scope="col">Action</th>
                     </tr>
                   </thead>
-                  {{--  <tbody>
+                  <tbody>
                    @php
                        $i=0;
                    @endphp
                     @foreach ($menus as $menu )
                       <tr>
                         <th scope="row">{{$i}}</th>
-                        <td>{{$category->name}}</td>
+                        <td>{{$menu->name}}</td>
                         <td>
-                            <a href="{{route('category.edit',[$category->id])}}" class="btn btn-default">Edit</a>
-                            <a href="{{route('category.delete',['id' => $category->id])}}" class="btn btn-danger">Delete</a>
+                            <a href="{{route('menu.edit',[$menu->id])}}" class="btn btn-default">Edit</a>
+                            <a href="{{route('menu.delete',['id' => $menu->id])}}" class="btn btn-danger">Delete</a>
                         </td>
                       </tr>
                     @php
                       $i++;
                     @endphp
                     @endforeach
-                  </tbody>  --}}
+                  </tbody>
                 </table>
               </div>
-              {{--  <div class="col-md-12">
-                {{ $categories->links('vendor.pagination.custom') }}
-              </div>  --}}
+              <div class="col-md-12">
+                {{ $menus->links('vendor.pagination.custom') }}
+              </div>
             </div>
           </div>
         </div>
