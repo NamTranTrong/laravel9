@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Menu extends Model
 {
     use HasFactory;
-
-    protected $filltable = ['parent_id', 'name', 'slug'];
+    use SoftDeletes;
+    protected $fillable = ['parent_id', 'name', 'slug'];
 }
