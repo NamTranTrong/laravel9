@@ -4,6 +4,11 @@
     <title>Add Category</title>
 @endsection
 
+@section('css')
+    <link href="{{asset('vendors/select2/select2.min.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('admin-css-js/category/edit/edit.css')}}">
+@endsection
+
 @section('content')
     <div class="content-wrapper" style="min-height: 358.4px;">
         <!-- Content Header (Page header) -->
@@ -20,7 +25,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Chọn Danh Mục Cha</label>
-                                <select class="form-control" name="parent_id">
+                                <select class="js-example-placeholder-single form-control" name="parent_id">
                                     <option value="0">Danh Mục Cha</option>
                                     {!! $htmlOption !!}
                                 </select>
@@ -32,4 +37,9 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="{{asset('vendors/select2/select2.min.js')}}"></script>
+    <script src="{{asset('admin-css-js/category/edit/edit.js')}}"></script>
 @endsection

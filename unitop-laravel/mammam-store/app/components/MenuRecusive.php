@@ -16,7 +16,7 @@ class MenuRecusive{
 
         foreach($data as $dataItem){
             $this->html .= "<option value = ".$dataItem->id.">".$subMark.$dataItem->name."</option>";
-            $this->MenuRecusiveAdd($dataItem->id,$subMark .= "---");
+            $this->MenuRecusiveAdd($dataItem->id,$subMark. "---");
         }
         return $this->html;
     }
@@ -31,7 +31,7 @@ class MenuRecusive{
             else{
                 $this->html.= "<option value=".$dataItem->id.">".$subMark.$dataItem->name. "</option>";
             }
-            $this->MenuRecusiveEdit($parentIdMenu,$dataItem->id,$subMark.="---");
+            $this->MenuRecusiveEdit($parentIdMenu,$dataItem->id,$subMark."---");
         }
 
         return $this->html;
