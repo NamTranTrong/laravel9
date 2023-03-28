@@ -17,7 +17,7 @@
         @include('partials.content-header',['name' => 'Sản Phẩm' , 'key' => 'Thêm mới'])
         <div class="content" style="display:flex">
             <div class="container-fluid">
-                <form action="{{route('category.store')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-5">
@@ -38,7 +38,7 @@
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="">Chọn Danh Mục Cha</label>
-                                <select class="js-example-placeholder-single js-states form-control" name="parent_id">
+                                <select class="js-example-placeholder-single js-states form-control" name="category_id">
                                     <option value="0">Danh Mục Cha</option>
                                     {!! $htmlOption !!}
                                 </select>
@@ -49,7 +49,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ảnh Chi Tiết Sản Phẩm</label>
-                                <input type="file" multiple class="form-control-file" name="">
+                                <input type="file" multiple class="form-control-file" name="image_path[]">
                             </div>
                         </div>
                     </div>
