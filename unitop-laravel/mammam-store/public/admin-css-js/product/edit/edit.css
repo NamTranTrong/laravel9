@@ -1,0 +1,10 @@
+.img_product_edit{
+    width: 230px;
+    height: 150px;
+    margin-right: 5px;
+}
+
+.container_img_edit{
+    display:flex;
+    margin-right:10px ;
+}
