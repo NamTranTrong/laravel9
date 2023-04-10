@@ -23,7 +23,10 @@
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên Sản Phẩm</label>
-                                <input type="text" class="form-control" name="name" placeholder="Nhập tên sản phẩm">
+                                <input type="text" value="{{old('name')}}" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nhập tên sản phẩm">
+                                @error('name')
+                                     <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tags cho Sản Phẩm</label>
@@ -32,16 +35,22 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Giá Sản Phẩm</label>
-                                <input type="text" class="form-control" name="price" placeholder="Vd :10.000,20.000,...">
+                                <input value="{{old('price')}}" type="text" class="form-control @error('price') is-invalid @enderror" name="price" placeholder="Vd :10.000,20.000,...">
+                                @error('price')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="">Chọn Danh Mục Cha</label>
-                                <select class="js-example-placeholder-single js-states form-control" name="category_id">
+                                <select class="js-example-placeholder-single js-states form-control @error('category_id') is-invalid @enderror" name="category_id">
                                     <option value="0">Danh Mục Cha</option>
                                     {!! $htmlOption !!}
                                 </select>
+                                @error('category_id')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ảnh Sản Phẩm</label>
@@ -57,7 +66,10 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nội dung</label>
-                                <textarea class="form-control" name="content" id="ckeditor_editor_init" rows="8"></textarea>
+                                <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="ckeditor_editor_init" rows="8">{{old('content')}}</textarea>
+                                @error('content')
+                                     <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                     </div>

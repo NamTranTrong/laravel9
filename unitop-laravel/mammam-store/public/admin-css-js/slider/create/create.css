@@ -1,0 +1,10 @@
+.alert-danger{
+    color:#dc3545;
+    padding : 5px;
+    font-style: italic;
+    background: none;
+}
+
+.alert{
+    border : none
+}

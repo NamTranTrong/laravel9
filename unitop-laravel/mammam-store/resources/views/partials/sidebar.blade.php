@@ -60,6 +60,33 @@
             </p>
           </a>
         </li>
+
+        <li class="nav-item">
+          <a href="{{route('slider.index')}}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+              Slider
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="{{route('setting.index')}}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+              Setting
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="{{route('user.index')}}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+              Danh sách Nhân Viên 
+            </p>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

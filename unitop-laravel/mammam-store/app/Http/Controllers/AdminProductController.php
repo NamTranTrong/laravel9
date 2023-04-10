@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\productAddRequest;
+use App\Traits\DeleteModelTrait;
 use App\Traits\StorageImageTrait;
 use Illuminate\Http\Request;
 use App\Components\Recusive;
@@ -19,6 +21,7 @@ class AdminProductController extends Controller
 {
 
     use StorageImageTrait;
+    use DeleteModelTrait;
     private $product;
     private $productImages;
     private $category;
@@ -50,7 +53,7 @@ class AdminProductController extends Controller
         return view('admin.product.create',compact('htmlOption'));
     }
 
-    public function store(Request $request){
+    public function store(productAddRequest $request){
         DB::beginTransaction();
         try{
             $dataProductCreate = [
@@ -149,18 +152,6 @@ class AdminProductController extends Controller
     }
 
     public function delete($id){
-        Try{
-            $this->product->find($id)->delete();
-            return response()->json([
-                'code' => 200,
-                'massage' => 'success',
-            ],200);
-        }catch(\Exception $exception){
-            Log::error('Message :' . $exception->getMessage() . 'Line :' . $exception->getLine());  
-            return response()->json([
-                'code' => 500,
-                'massage' => 'fail',
-            ],500);
-        };
+        return $this->deleteModelTrait($this->product,$id);
     }
 }

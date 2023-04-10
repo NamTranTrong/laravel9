@@ -8,3 +8,14 @@
 .select2-container--default .select2-selection--multiple .select2-selection__choice{
     color: #000;
 }
+
+.alert-danger{
+    color:#dc3545;
+    padding : 5px;
+    font-style: italic;
+    background: none;
+}
+
+.alert{
+    border : none
+}
