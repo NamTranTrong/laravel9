@@ -4,6 +4,8 @@
     <title>User</title>
 @endsection
 
+
+
 @section('content')
     <div class="content-wrapper" style="min-height: 358.4px;">
         @include('partials.content-header',['name' => 'User', 'key' => 'Danh sách'])
@@ -38,7 +40,7 @@
                         <td>{{$user->email}}</td>
                         <td>
                             <a href="{{route('user.edit',['id' => $user->id])}}" class="btn btn-default">Edit</a>
-                            <a href="" class="btn btn-danger">Delete</a>
+                            <a href="" data-url={{route('user.delete',['id' => $user->id])}} class="btn btn-danger action_delete">Delete</a>
                         </td>
                       </tr>
                     @php
@@ -57,3 +59,8 @@
     </div>
 @endsection
 
+
+@section('js')
+  <script src="{{asset('vendors/sweetalert2/sweetalert2@11.js')}}"></script>
+  <script src="{{asset('admin-css-js/user/delete/delete.js')}}"></script>
+@endsection

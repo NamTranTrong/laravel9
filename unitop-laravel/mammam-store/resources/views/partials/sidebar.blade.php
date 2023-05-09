@@ -87,6 +87,24 @@
             </p>
           </a>
         </li>
+
+        <li class="nav-item">
+          <a href="{{route('role.index')}}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+              Danh sách Vai Trò
+            </p>
+          </a>
+        </li>
+
+        
+        <li class="nav-item">
+          <a href="{{route('permission.create')}}" class="nav-link">
+            <p>
+              Thêm Mới Phân Quyền 
+            </p>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

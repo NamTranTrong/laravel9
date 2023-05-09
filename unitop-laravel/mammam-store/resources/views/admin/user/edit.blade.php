@@ -18,7 +18,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="" method="post">
+                        <form action="{{route('user.update',['id' => $user->id])}}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên</label>
@@ -63,7 +63,6 @@
                                     @endforeach
                                 </select>
                             </div>
-
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
