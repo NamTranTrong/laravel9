@@ -20,3 +20,25 @@ Route::get('/', function () {
 Route::get('/home',function(){
     return view('home');
 });
+
+Route::prefix('/category')->group(function(){
+    Route::get('/',[
+        'as' => 'category.index',
+        'uses' => 'CategoryController@index',
+    ]);
+
+    Route::get('/create',[
+        'as' => 'category.create',
+        'uses' => 'CategoryController@create',
+    ]);
+
+    Route::post('/store',[
+        'as' => 'category.store',
+        'uses' => 'CategoryController@store',
+    ]);
+
+    Route::get('/edit/{id}',[
+        'as' => 'category.edit',
+        'uses' => "CategoryController@edit",
+    ]);
+});

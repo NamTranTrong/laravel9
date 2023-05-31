@@ -1,0 +1,11 @@
+.page-link.active, .active>.page-link{
+    background-color: none;
+    border-color: none;
+}
+
+.pagination{
+    --bs-pagination-active-bg : none;
+    --bs-pagination-active-border-color:none;
+    --bs-pagination-color:none;
+    --bs-pagination-focus-box-shadow:#dee2e6;
+}

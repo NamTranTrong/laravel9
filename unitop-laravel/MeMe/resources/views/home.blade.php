@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
-@section('content')
-    <h1>content</h1>
+@section('title')
+   <title>Trang Chủ</title>
 @endsection
 
+@section('content')
+    @include('partials.content-header',['name' => 'Home' , 'key' => 'Trang Chủ'])
+@endsection
