@@ -24,21 +24,38 @@ Route::get('/home',function(){
 Route::prefix('/category')->group(function(){
     Route::get('/',[
         'as' => 'category.index',
-        'uses' => 'CategoryController@index',
+        'uses' => 'AdminCategoryController@index',
     ]);
 
     Route::get('/create',[
         'as' => 'category.create',
-        'uses' => 'CategoryController@create',
+        'uses' => 'AdminCategoryController@create',
     ]);
 
     Route::post('/store',[
         'as' => 'category.store',
-        'uses' => 'CategoryController@store',
+        'uses' => 'AdminCategoryController@store',
     ]);
 
     Route::get('/edit/{id}',[
         'as' => 'category.edit',
-        'uses' => "CategoryController@edit",
+        'uses' => "AdminCategoryController@edit",
+    ]);
+
+    Route::post('/update/{id}',[
+        'as' => 'category.update',
+        'uses' => 'AdminCategoryController@update',
+    ]);
+
+    Route::get('/delete/{id}',[
+        'as' => 'category.delete',
+        'uses' => 'AdminCategoryController@delete',
     ]);
 });
+
+    Route::prefix('product')->group(function(){
+        Route::get('/',[
+            'as' => 'product.index',
+            'uses' => 'AdminProductController@index',
+        ]);
+    });

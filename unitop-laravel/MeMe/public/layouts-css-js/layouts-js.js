@@ -175,3 +175,4 @@ if (win && document.querySelector('#sidenav-scrollbar')) {
   }
   Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
 }
+

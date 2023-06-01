@@ -11,6 +11,10 @@
   <link href="{{asset('adminlte/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
   <link id="pagestyle" href="{{asset('adminlte/assets/css/soft-ui-dashboard.css')}}?v=1.0.7" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{{asset('layouts-css-js/latouts-css.css')}}">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  @yield('css')
   @yield('title')
 </head>
 
@@ -33,6 +37,7 @@
   <script src="{{asset('adminlte/assets/js/soft-ui-dashboard.min.js?v=1.0.7')}}"></script>
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  @yield('js')
 </body>
 
 </html>
