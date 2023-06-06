@@ -10,6 +10,13 @@
                   <label>Enter Name</label>
                   <input class="form-control" value="{{$category->name}}" name="name" placeholder="Ex: Quần, Áo, Nón,...">
                 </div>
+                <div class="form-group">
+                    <label>Choose Category Parent</label>
+                    <select class="form-control" name="parent_id" >
+                        <option value=""></option>
+                        {!! $htmlSelect !!}
+                    </select>
+                </div>
                 <div>
                     <button type="submit" class="btn btn-outline-primary">Submit</button>
                 </div>

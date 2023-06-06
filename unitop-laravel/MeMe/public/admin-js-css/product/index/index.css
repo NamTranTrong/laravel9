@@ -1,0 +1,5 @@
+td.long-data {
+    max-width: 200px; /* Độ rộng tối đa của ô */
+    word-wrap: break-word; /* Tự động xuống dòng khi độ dài vượt quá độ rộng */
+    white-space: normal; /* Đảm bảo các dữ liệu xuống dòng */
+}

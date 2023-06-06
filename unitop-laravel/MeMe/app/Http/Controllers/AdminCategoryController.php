@@ -5,27 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Str;
 use App\Models\Category;
+use App\Components\Recusive\CategoryRecusive;
 
 class AdminCategoryController extends Controller
 {
-
     private $category;
-    public function __construct(Category $category){
+    private $categoryRecusive;
+    public function __construct(Category $category, CategoryRecusive $categoryRecusive){
         $this->category = $category;
+        $this->categoryRecusive = $categoryRecusive;
     }
     public function index(){
-        $categories = $this->category->latest()->paginate(2);
+        $categories = $this->category->latest()->paginate(5);
         return view('admin.category.index',compact('categories'));
     }
 
     public function create(){
-        return view('admin.category.create');
+        $htmlSelect =  $this->categoryRecusive->getCategoryAdd();
+
+        return view('admin.category.create',compact("htmlSelect"));
     }
 
     public function store(Request $request){
         $this->category->create([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
+            'parent_id' => $request->parent_id,
         ]);
 
         return redirect()->route("category.index");
@@ -33,13 +38,15 @@ class AdminCategoryController extends Controller
 
     public function edit($id){
         $category = $this->category->find($id);
-        return view('admin.category.edit',compact('category'));
+        $htmlSelect =  $this->categoryRecusive->getCategoryEdit($category->parent_id);
+        return view('admin.category.edit',compact('category','htmlSelect'));
     }
 
     public function update(Request $request,$id){
         $this->category->find($id)->update([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
+            'parent_id' => $request->parent_id,
         ]);
         return redirect()->route('category.index');
     }
@@ -60,4 +67,5 @@ class AdminCategoryController extends Controller
             ],500);
         }
     }
+
 }

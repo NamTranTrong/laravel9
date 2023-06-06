@@ -58,4 +58,14 @@ Route::prefix('/category')->group(function(){
             'as' => 'product.index',
             'uses' => 'AdminProductController@index',
         ]);
+
+        Route::get('/create',[
+            'as' => 'product.create',
+            'uses' => 'AdminProductController@create',
+        ]);
+
+        Route::post('/store',[
+            'as' => 'product.store',
+            'uses' => 'AdminProductController@store',
+        ]);
     });
