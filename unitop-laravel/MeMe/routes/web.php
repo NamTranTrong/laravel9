@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin','AdminController@loginAdmin');
+
+Route::post('/admin','AdminController@postLoginAdmin');
+
+
 Route::get('/home',function(){
     return view('home');
 });

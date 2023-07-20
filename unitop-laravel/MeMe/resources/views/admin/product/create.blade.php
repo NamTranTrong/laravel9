@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group ">
                     <label>Enter Content</label>
-                    <div id="editor" ></div>
+                    <textarea name="content" class="form-control my-editor" style="height: 400px"></textarea>
                 </div>
                 <div class="form-group">
                     <label>Choose Pictures</label>
@@ -43,5 +43,5 @@
 
 @section('js')
     <script src="{{asset('admin-js-css/product/create/create.js')}}"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 @endsection
