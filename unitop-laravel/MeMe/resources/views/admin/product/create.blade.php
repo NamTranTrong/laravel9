@@ -2,6 +2,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset('admin-js-css/product/create/create.css')}}">
+    <link rel="stylesheet" href="{{asset('vendors/select2/select2.min.css')}}">
 @endsection
 
 @section('content')
@@ -25,13 +26,22 @@
                         {!!$htmlSelect!!}
                     </select>
                 </div>
+                <div class="form-group">
+                    <label>Choose Tags</label>
+                    <select class="js-example-tokenizer form-control" multiple="multiple" name="tags[]"></select>
+                    </select>
+                </div>
                 <div class="form-group ">
                     <label>Enter Content</label>
                     <textarea name="content" class="form-control my-editor" style="height: 400px"></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Choose Pictures</label>
-                    <input class="form-control" type="file" multiple name="feature_image_path">
+                    <label>Choose Main Picture</label>
+                    <input class="form-control" type="file" name="feature_image_path">
+                </div>
+                <div class="form-group">
+                    <label>Choose Details Pictures</label>
+                    <input class="form-control" type="file" multiple name="img_path[]">
                 </div>
                 <div>
                     <button type="submit" class="btn btn-outline-primary">Submit</button>
@@ -44,4 +54,5 @@
 @section('js')
     <script src="{{asset('admin-js-css/product/create/create.js')}}"></script>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="{{asset('vendors/select2/select2.min.js')}}"></script>
 @endsection
