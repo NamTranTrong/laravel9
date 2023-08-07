@@ -29,28 +29,35 @@
                       </tr>
                     </thead>
                     <tbody>
-                      {{--  @foreach ($categories as $category )  --}}
+                      @foreach ($products as $product )
                       <tr class="text-center">
-                        <th>1</th>
-                        <td>Áo khóa nam</td>
-                        <td class="long-data">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt perspiciatis sed optio pariatur. Blanditiis placeat omnis, consectetur, accusamus eaque delectus illum sequi consequatur minima, aliquam commodi expedita necessitatibus nemo beatae!</td>
-                        <td>Hình ảnh 1</td>
-                        <td>
-                            <a href="" class="btn bg-gradient-danger action_delete">
+                        <th class="vertical-align-middle">{{$product->id}}</th>
+                        <td class="vertical-align-middle">{{$product->name}}</td>
+                        <td class="long-data">
+                          <div class="product-content">
+                            {!!$product->content!!} 
+                          </div>
+                          <div id="collapse-target" tabindex="-1"></div>
+                        </td>
+                        <td class="vertical-align-middle">
+                          <img style="width:170px;height:200px;" src="{{$product->feature_image_path}}" alt="">
+                        </td>
+                        <td class="vertical-align-middle">
+                            <a data-url="{{route('product.delete',['id' => $product->id])}}" class="btn bg-gradient-danger action_delete">
                               <span class="btn-inner--icon"><i class="fa-solid fa-trash-can pe-2"></i></span>
                               <span class="btn-inner--text">Delete</span>
                             </a>
-                            <a href="" class="btn bg-gradient-secondary">
+                            <a href="{{route('product.edit',['id' => $product->id])}}" class="btn bg-gradient-secondary">
                               <span class="btn-inner--icon"><i class="fa-sharp fa-solid fa-pen-to-square pe-2"></i></span>
                               <span class="btn-inner--text">Edit</span>
                             </a>
                         </td>
                       </tr>
-                      {{--  @endforeach  --}}
+                      @endforeach
                     </tbody>
                 </table>
                 <div>
-                  {{--  {{$categories->links('vendor.pagination.bootstrap-5')}}  --}}
+                  {{$products->links('vendor.pagination.bootstrap-5')}}
                 </div>
             </div>
         </div>
@@ -60,5 +67,6 @@
 
 @section('js')
     <script src="{{asset('vendors/sweetalert2/sweetalert2@11.js')}}"></script>
-    <script src="{{asset('admin-js-css/category/delete/delete.js')}}"></script>
+    <script src="{{asset('admin-js-css/product/delete/delete.js')}}"></script>
+    <script src="{{asset('admin-js-css/product/index/index.js')}}"></script>
 @endsection

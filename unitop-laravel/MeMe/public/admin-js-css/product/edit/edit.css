@@ -1,0 +1,23 @@
+.ck-editor__editable {
+    min-height: 250px;
+}
+
+.image-main-product{
+    padding-top: 20px;
+}
+
+.image-main-product image{
+    width: 100px;
+    height: 100px;
+}
+
+.images-detail-product{
+    padding-top: 20px;
+    display: flex;
+}
+
+.images-detail-product img{
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+}

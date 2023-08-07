@@ -1,5 +1,27 @@
 td.long-data {
-    max-width: 200px; /* Độ rộng tối đa của ô */
-    word-wrap: break-word; /* Tự động xuống dòng khi độ dài vượt quá độ rộng */
-    white-space: normal; /* Đảm bảo các dữ liệu xuống dòng */
+    max-width: 200px;
+    word-wrap: break-word;
+    white-space: normal;
 }
+
+td.long-data .product-content {
+    max-height: 80px; /* Chiều cao tối đa hiển thị ban đầu, bạn có thể điều chỉnh giá trị tùy ý */
+    overflow: hidden;
+}
+
+td.long-data .collapsed {
+    max-height: none; /* Khi có class "collapsed," hiển thị toàn bộ nội dung */
+}
+
+td.long-data .toggle-button {
+    /* ... */
+    color: #6ec8e3; /* Đổi màu sang màu đỏ (ví dụ) */
+    font-style: italic; /* In nghiêng chữ */
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.vertical-align-middle{
+    vertical-align: middle;
+}
+

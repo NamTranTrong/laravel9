@@ -9,7 +9,7 @@ trait StorageImageTrait{
 
     public function storageTraitUpload($request,$fieldName,$folderName){
         if($request->hasFile($fieldName)){
-            $file = $request->$fieldName;
+            $file = $request->$fieldName;   
             $fileNameOrigin =$file->getClientOriginalName();
             $fileNameHash = Str::random(20).'.'.$file->getClientOriginalExtension();
             $filePath = $request->file($fieldName)->storeAs('public/'.$folderName.'/'.auth()->id(),$fileNameHash);

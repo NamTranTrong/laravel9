@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use Str;
 use App\Models\Category;
 use App\Components\Recusive\CategoryRecusive;
+use App\Traits\DeleteModelTrait;
 
 class AdminCategoryController extends Controller
 {
+    use DeleteModelTrait;
     private $category;
     private $categoryRecusive;
     public function __construct(Category $category, CategoryRecusive $categoryRecusive){
@@ -52,20 +54,6 @@ class AdminCategoryController extends Controller
     }
 
     public function delete($id){
-        try{
-            $this->category->find($id)->delete();
-            return response()->json([
-                'code' => '200',
-                'message' => 'success'
-            ],200);
-        }catch(\Exception $exception){
-            
-            \Log::error('message' . $exception->getMessage().'----line :' . $exception->getLine());
-            return response()->json([
-                'code' => '500',
-                'message' => 'fail',
-            ],500);
-        }
+        return $this->deleteModelTrait($this->category,$id);
     }
-
 }

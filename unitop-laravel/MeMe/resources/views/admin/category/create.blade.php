@@ -13,7 +13,7 @@
                 <div class="form-group">
                     <label>Choose Category Parent</label>
                     <select class="form-control" name="parent_id" >
-                        <option value=""></option>
+                        <option value="0"></option>
                         {!! $htmlSelect !!}
                     </select>
                 </div>
