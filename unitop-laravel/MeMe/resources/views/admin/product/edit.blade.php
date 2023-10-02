@@ -47,6 +47,7 @@
                         @foreach ($selectTags as $tag)
                             <option value="{{ $tag->name }}" selected>{{ $tag->name }}</option>
                         @endforeach
+                        
                         @foreach ($tags as $tag)
                             <option value="{{ $tag->name }}">{{ $tag->name }}</option>
                         @endforeach
