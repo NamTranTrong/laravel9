@@ -36,7 +36,7 @@
                             {{ $combinedString }}
                             </td>
                             <td>
-                                <a href=""  class="btn bg-gradient-danger action_delete">
+                                <a data-url="{{route('permission.delete',['id' => $getModule->id])}}" class="btn bg-gradient-danger action_delete">
                                 <span class="btn-inner--icon"><i class="fa-solid fa-trash-can pe-2"></i></span>
                                 <span class="btn-inner--text">Delete</span>
                                 </a>
@@ -60,5 +60,5 @@
 
 @section('js')
     <script src="{{asset('vendors/sweetalert2/sweetalert2@11.js')}}"></script>
-    <script src="{{asset('admin-js-css/category/delete/delete.js')}}"></script>
+    <script src="{{asset('admin-js-css/permission/delete/delete.js')}}"></script>
 @endsection

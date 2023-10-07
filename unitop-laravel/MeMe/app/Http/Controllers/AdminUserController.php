@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\DeleteModelTrait;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
@@ -9,6 +10,7 @@ use Hash;
 
 class AdminUserController extends Controller
 {
+    use DeleteModelTrait;
     protected $user;
     protected $role;
     public function __construct(User $user,Role $role){
@@ -57,5 +59,9 @@ class AdminUserController extends Controller
         }
         $user->roles()->sync($request->role_id);
         return redirect()->route("user.index");
+    }
+
+    public function delete($id){
+        return $this->deleteModelTrait($this->user,$id);
     }
 }

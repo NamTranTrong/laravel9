@@ -30,7 +30,7 @@
                         <td>{{$role->name}}</td>
                         <td>{{$role->display_name}}</td>
                         <td>
-                            <a href="" class="btn bg-gradient-danger action_delete">
+                            <a data-url="{{route('role.delete',['id' => $role->id])}}" class="btn bg-gradient-danger action_delete">
                               <span class="btn-inner--icon"><i class="fa-solid fa-trash-can pe-2"></i></span>
                               <span class="btn-inner--text">Delete</span>
                             </a>

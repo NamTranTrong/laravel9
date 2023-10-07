@@ -14,6 +14,11 @@
                     <label>Enter Display Name</label>
                     <input class="form-control" name="display_name" placeholder="Ex: Quản lý hệ thống, chỉnh sửa nội dung,...">
                 </div>
+                    <div class="checkbox_permission">
+                        <div class="form-check form-check-inline">
+                            <label style="font-size:15px;font-style:italic" for="">Select All</label>
+                            <input class="form-check-input" type="checkbox" id="checkbox_wrapper" >
+                        </div>
                         @foreach ($getModules as $getModule )                
                                 @foreach (config('permissions.module_table') as $module_table)
                                         @if($module_table === $getModule->name)
@@ -27,7 +32,7 @@
                             @endphp    
                             @foreach ($permissionNames as $permissionName)     
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" name="module_permission[]" type="checkbox" id="inlineCheckbox1" value="{{$permissionName->id}}">
+                                    <input class="form-check-input checkbox_child" name="module_permission[]" type="checkbox" id="inlineCheckbox1" value="{{$permissionName->id}}">
                                     <label class="form-check-label" for="inlineCheckbox1">{{$permissionName->name}}</label>
                                 </div>
                             @endforeach
@@ -39,4 +44,8 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section("js")
+    <script src="{{asset('admin-js-css/role/create/create.js')}}"></script>
 @endsection
