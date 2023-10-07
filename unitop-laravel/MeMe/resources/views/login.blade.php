@@ -28,7 +28,6 @@
         margin-top: -85px;
         }
     </style>
-    <!------ Include the above in your HEAD tag ---------->
     <body>
         <div id="login">
             <div class="container">

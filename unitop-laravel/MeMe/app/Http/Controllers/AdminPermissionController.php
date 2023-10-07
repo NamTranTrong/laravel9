@@ -56,7 +56,7 @@ class AdminPermissionController extends Controller
         return view("admin.permission.edit",compact("module","permissions"));
     }
 
-    public function update(PermissionAddRequest $request,$id){
+    public function update(Request $request,$id){
         $module = $this->permission->find($id);
         $module -> where('parent_id',$id)->delete();
         foreach($request->module_permission as $permission){
@@ -67,7 +67,6 @@ class AdminPermissionController extends Controller
                 'key_code' => Str::lower($permission).'_'.Str::lower($request->module_table),
             ]);
         }
-
         return redirect()->route("permission.index");
     }
 

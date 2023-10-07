@@ -9,9 +9,8 @@
                 <div>
                   <label>Choose Model</label>
                   <select class="form-control" name="module_table">
-                        <option value="">{{$module->name}}</option>
                         @foreach (config('permissions.module_table') as $module_table)
-                            @if ( $module->name != $module_table)
+                            @if ( $module->name === $module_table)
                                 <option value="{{$module_table}}">{{$module_table}}</option>
                             @endif
                         @endforeach
