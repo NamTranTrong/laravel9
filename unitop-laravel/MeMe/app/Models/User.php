@@ -49,10 +49,10 @@ class User extends Authenticatable
     }
 
     public function checkPermissionAccess($checkPermission){
-        $roles = auth()->user()->roles;
+        $roles = auth()->user()->roles; //lấy tất cả các roles của user đang đăng nhập 
         foreach ($roles as $role){
-            $permissions = $role->permission;
-            if($permissions->contains('key_code',$checkPermission)){
+            $permissions = $role->permission; // lấy tất cả các permissions của mỗi role
+            if($permissions->contains('key_code',$checkPermission)){ // check nếu key_code trong permission đó giống với tham số mình truyền trong Policy để kiểm tra thì trả về true 
                 return true;
             }
         }
