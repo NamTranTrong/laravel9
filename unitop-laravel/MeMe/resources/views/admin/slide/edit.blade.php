@@ -1,0 +1,40 @@
+@extends('layouts.admin')
+
+
+@section('css')
+    {{--  <link rel="stylesheet" href="{{asset('vendors/select2/select2.min.css')}}">  --}}
+@endsection
+
+@section('content')
+    @include('partials.content-header',['name' => 'Slide','key' => 'Edit'])
+    <div class="content">
+        <div class="container">
+            <form method="POST" action="{{route('slide.update',['id' => $slide->id])}}" enctype="multipart/form-data" >
+                @csrf
+                <div class="form-group">
+                  <label>Enter Name</label>
+                  <input class="form-control" value="{{$slide->name}}" name="name" placeholder="Nhập tên Slide">
+                </div>
+                <div class="form-group">
+                    <label>Enter Description</label>
+                    <textarea class="form-control" name="description" id="" cols="100" rows="5" placeholder="Nhập mô tả Slide">{{$slide->description}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label>Enter Picture</label>
+                    <input type="file" name='feature_image_path' class="form-control">
+                </div>
+                <div class="form-group">
+                    <img src="{{$slide->image_path}}" alt="" style="width:200px;height:200px">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-outline-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+@endsection
+
+@section('js')
+    {{--  <script src="{{asset('admin-js-css/user/create/create.js')}}"></script>  --}}
+    <script src="{{asset('vendors/select2/select2.min.js')}}"></script>
+@endsection

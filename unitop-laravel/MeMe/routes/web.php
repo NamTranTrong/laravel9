@@ -187,3 +187,35 @@ Route::prefix('/permission')->group(function(){
     ]);
     
 });
+
+Route::prefix('/slide')->group(function(){
+    Route::get('/',[
+        'as' => 'slide.index',
+        'uses' => 'AdminSlideController@index',
+    ]);
+
+    Route::get('/create',[
+        'as' => 'slide.create',
+        'uses' => 'AdminSlideController@create',
+    ]);
+
+    Route::post('/store',[
+        'as' => 'slide.store',
+        'uses' => 'AdminSlideController@store',
+    ]);
+
+    Route::get('/edit/{id}',[
+        'as' => 'slide.edit',
+        'uses' => 'AdminSlideController@edit',
+    ]);
+
+    Route::post('/update/{id}',[
+        'as' => 'slide.update',
+        'uses' => 'AdminSlideController@update',
+    ]);
+
+    Route::get('/delete/{id}',[
+        'as' => 'slide.delete',
+        'uses' => 'AdminSlideController@delete',
+    ]);
+});
