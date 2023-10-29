@@ -6,21 +6,14 @@
       <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 pl-3">
-              {{--  <a href="{{route('setting.create')}}" class="button-link">
-                <button class="btn bg-gradient-info">
-                  <span class="btn-inner--icon"><i class="fa-solid fa-plus pe-2"></i></span>
-                  <span class="btn-inner--text">ADD</span>
-                </button>
-              </a>  --}}
               <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown link
+                <a class="btn bg-gradient-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  ADD
                 </a>
               
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item"  href="{{route('setting.create').'?type=text'}}">Text</a></li>
+                  <li><a class="dropdown-item" href="{{route('setting.create').'?type=textarea'}}">Textarea</a></li>
                 </ul>
               </div>              
             </div>
@@ -35,28 +28,28 @@
                       </tr>
                     </thead>
                     <tbody>
-                      {{--  @foreach ($users as $user )  --}}
+                      @foreach ($settings as $setting )
                       <tr class="text-center">
-                        <th>1</th>
-                        <td>contact_phone</td>
-                        <td>0937197829</td>
+                        <th>{{$setting->id}}</th>
+                        <td>{{$setting->config_key}}</td>
+                        <td style="white-space : normal">{{$setting->config_value}}</td>
                         </td>
                         <td>
                             <a class="btn bg-gradient-danger action_delete">
                               <span class="btn-inner--icon"><i class="fa-solid fa-trash-can pe-2"></i></span>
                               <span class="btn-inner--text">Delete</span>
                             </a>
-                            <a href="" class="btn bg-gradient-secondary">
+                            <a href="{{route('setting.edit',['id' => $setting->id]).'?type='.$setting->type}}" class="btn bg-gradient-secondary">
                               <span class="btn-inner--icon"><i class="fa-sharp fa-solid fa-pen-to-square pe-2"></i></span>
                               <span class="btn-inner--text">Edit</span>
                             </a>
                         </td>
                       </tr>
-                      {{--  @endforeach  --}}
+                      @endforeach
                     </tbody>
                 </table>
                 <div>
-                  {{--  {{$users->links('vendor.pagination.bootstrap-5')}}  --}}
+                  {{$settings->links('vendor.pagination.bootstrap-5')}}
                 </div>
             </div>
         </div>

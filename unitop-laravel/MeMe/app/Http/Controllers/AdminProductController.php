@@ -27,7 +27,7 @@ class AdminProductController extends Controller
         $this->tag = $tag;
     }
     public function index(){
-        $products = $this->product->latest()->paginate(2);
+        $products = $this->product->latest()->paginate(4);
         return view('admin.product.index',compact('products'));
     }
 
