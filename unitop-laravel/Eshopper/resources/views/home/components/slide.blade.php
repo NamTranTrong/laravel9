@@ -1,5 +1,5 @@
 @php
-    $baseUrl = "http://127.0.0.1:8081"
+    $baseUrl = config('app.base_url')
 @endphp
 
 <div id="header-carousel" class="carousel slide" data-ride="carousel">
