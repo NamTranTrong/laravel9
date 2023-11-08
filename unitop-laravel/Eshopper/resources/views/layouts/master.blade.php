@@ -28,6 +28,7 @@
         @yield('content')
         @include('components.footer')
     </body>
+    @yield('js')
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

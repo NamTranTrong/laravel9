@@ -20,3 +20,10 @@ Route::get('/', function () {
 
 
 Route::get('/home','HomeController@index');
+
+Route::prefix('/product')->group(function () {
+    Route::get('/category/{slug}/{id}',[
+        'as'=> 'product.list',
+        'uses' => 'ProductController@index',
+    ]);
+});
