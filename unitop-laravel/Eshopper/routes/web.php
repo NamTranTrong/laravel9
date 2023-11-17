@@ -26,4 +26,26 @@ Route::prefix('/product')->group(function () {
         'as'=> 'product.list',
         'uses' => 'ProductController@index',
     ]);
+
+    Route::get('/add-to-cart/{id}',[
+        'as'=> 'product.addCart',
+        'uses'=> 'ProductController@addToCart',
+    ]);
+});
+
+Route::prefix('/cart')->group(function () {
+    Route::get('/list-product-cart',[
+        'as' => 'cart.index',
+        'uses' => 'CartController@index',
+    ]);
+
+    Route::get('/update-cart',[
+        'as' => 'cart.update',
+        'uses' => 'CartController@update',
+    ]);
+
+    Route::get('/delete/{id}',[
+        'as' => 'cart.delete',
+        'uses' => 'CartController@delete',
+    ]);
 });

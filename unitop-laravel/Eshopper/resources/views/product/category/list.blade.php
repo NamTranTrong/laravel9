@@ -4,8 +4,13 @@
     <title>Home</title>
 @endsection
 
+@section('css')
+    <link rel="stylesheet" href="{{asset('css-js-blade/css/product/product-list.css')}}">
+@endsection
+
 @section('content')
     <!-- Navbar Start -->
+    <div id="counter" class="hide">Đã thêm vào giỏ hàng</div>
     <div class="container-fluid mb-5">
         <div class="row border-top px-xl-5">
             @include('components.sidebar')
@@ -153,6 +158,7 @@
 
 
             <!-- Shop Product Start -->
+
             <div class="col-lg-9 col-md-12">
                 <div class="row pb-3">
                     <div class="col-12 pb-1">
@@ -180,6 +186,9 @@
                             </div>
                         </div>
                     </div>
+                    @php
+                        $total_quantity = 0;
+                    @endphp
                     @foreach ($products as $product )
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                             <div class="card product-item border-0 mb-4">
@@ -193,8 +202,8 @@
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex justify-content-between bg-light border">
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                                    <a href="#" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                    <a href="" data-url="{{route('product.addCart',['id' => $product->id])}}" class="btn btn-sm text-dark p-0 add_to_card"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
                                 </div>
                             </div>
                         </div>
@@ -229,5 +238,10 @@
     <!-- Shop End -->
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
+@endsection
+
+@section('js')
+    <script src="{{asset('css-js-blade\js\product\cart\cart.js')}}"></script>
+    <script src="{{asset('css-js-blade\js\header\header.js')}}"></script>
 @endsection
 

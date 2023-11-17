@@ -1,4 +1,5 @@
 <!-- Topbar Start -->
+
 <div class="container-fluid">
     <div class="row bg-secondary py-2 px-xl-5">
         <div class="col-lg-6 d-none d-lg-block">
@@ -53,11 +54,18 @@
                 <i class="fas fa-heart text-primary"></i>
                 <span class="badge">0</span>
             </a>
-            <a href="" class="btn border">
+            <a href="{{route('cart.index')}}" class="btn border">
                 <i class="fas fa-shopping-cart text-primary"></i>
-                <span class="badge">0</span>
+                <span id="headerElement" class="badge">0</span>
             </a>
         </div>
     </div>
 </div>
 <!-- Topbar End -->
+
+
+@section('js')
+
+@endsection
+
+
