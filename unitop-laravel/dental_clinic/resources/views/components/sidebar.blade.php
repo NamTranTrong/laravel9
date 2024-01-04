@@ -14,18 +14,20 @@
             </div>
         </div>
         <div class="navbar-nav w-100">
-            <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-            <div class="nav-item dropdown">
+            {{--  <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="button.html" class="dropdown-item">Buttons</a>
                     <a href="typography.html" class="dropdown-item">Typography</a>
                     <a href="element.html" class="dropdown-item">Other Elements</a>
                 </div>
-            </div>
-            <a href="{{asset(route('list.patient'))}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Patient</a>
-                </div>
-            </div>
+            </div>  --}}
+            <a href="{{asset(route('list.patient'))}}" class="nav-item nav-link {{ in_array(\Route::currentRouteName(), ['list.patient', 'add.patient','edit.patient','list.contraindication','add.contraindication','edit.contraindication','list.status','edit.status','list.plan','add.plan','edit.plan','list.prescription','edit.prescription']) ? 'active' : '' }}"><i class="fa-solid fa-hospital-user"></i>Patient</a>
+            <a href="{{asset(route('list.medicine'))}}" class="nav-item nav-link {{ in_array(\Route::currentRouteName(), ['list.medicine']) ? 'active' : '' }}"><i class="fa-solid fa-capsules"></i>Medicine</a>
+            <a href="{{asset(route('list.staff'))}}" class="nav-item nav-link {{ in_array(\Route::currentRouteName(), ['list.staff']) ? 'active' : '' }}"><i class="fa-solid fa-clipboard-user"></i>Staff</a>
+            <a href="{{asset(route('list.dentist'))}}" class="nav-item nav-link {{ in_array(\Route::currentRouteName(), ['list.dentist','list.schedule']) ? 'active' : '' }}"><i class="fa-solid fa-user-doctor"></i></i>Dentist</a>
+            <a href="{{asset(route('list.apointment'))}}" class="nav-item nav-link {{ in_array(\Route::currentRouteName(), ['list.apointment']) ? 'active' : '' }}"><i class="fa-regular fa-calendar-check"></i></i>Apointment</a>
+            <a href="{{asset(route('list.paymentInfo'))}}" class="nav-item nav-link {{ in_array(\Route::currentRouteName(), ['list.paymentInfo']) ? 'active' : '' }}"><i class="fa-solid fa-credit-card"></i>Payment_Info</a>
         </div>
     </nav>
 </div>

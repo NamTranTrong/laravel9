@@ -4,14 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Sanctum\Guard;
 
-class Patient extends Model
+class Schedule extends Model
 {
     use HasFactory;
-    protected $table = "benhnhan";
-    protected $primaryKey = 'MABN';
+    
+    protected $table = "lichtrinh";
+    protected $primaryKey = 'MALT';
     protected $guarded = [''];
 
     public $timestamps = false;
+
+    public function Dentist(){
+        return $this->belongsTo(Dentist::class,'MANS');
+    }
 }

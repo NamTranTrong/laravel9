@@ -23,6 +23,7 @@
                         <th scope="col">TUOI</th>
                         <th scope="col">GIOITINH</th>
                         <th scope="col">TONGQUANSK</th>
+                        <th scope="col">MORE</th>
                         <th scope="col">ACTION</th>
                     </tr>
                 </thead>
@@ -37,7 +38,19 @@
                             <td>{{$patient->GIOITINH}}</td>
                             <td>{{$patient->TONGQUANSK}}</td>
                             <td>
-                                <a href="" class="btn btn-outline-primary">
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end bg-black border-0 rounded-0 rounded-bottom m-0" data-bs-popper="none">
+                                        <a href="{{route('list.contraindication',['mabn' => $patient->MABN])}}" class="dropdown-item">Chống chỉ định thuốc</a>
+                                        <a href="{{route('list.status',['makh' => $patient->MABN])}}" class="dropdown-item">Tình trạng sức khỏe răng miệng</a>
+                                        <a href="{{route('list.plan',['mabn' => $patient->MABN])}}" class="dropdown-item">Kế hoạch điều trị</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="{{route('edit.patient',['mabn' => $patient->MABN])}}" class="btn btn-outline-primary">
                                     <span class="btn-inner--icon"><i class="fa-solid fa-pencil"></i></span>
                                     <span class="btn-inner--text">Edit</span>
                                 </a>

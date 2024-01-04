@@ -4,14 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Sanctum\Guard;
 
-class Patient extends Model
+class Status extends Model
 {
     use HasFactory;
-    protected $table = "benhnhan";
-    protected $primaryKey = 'MABN';
+    
+    protected $table = "ctrang";
+    protected $primaryKey = 'STT';
     protected $guarded = [''];
 
     public $timestamps = false;
+
+    function tooth(){
+        return $this->hasOne(Tooth::class, 'STT', 'STT');
+    }
 }

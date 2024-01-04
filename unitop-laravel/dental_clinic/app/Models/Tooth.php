@@ -4,13 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Sanctum\Guard;
 
-class Patient extends Model
+class Tooth extends Model
 {
     use HasFactory;
-    protected $table = "benhnhan";
-    protected $primaryKey = 'MABN';
+    protected $table = "rang";
+    protected $primaryKey = 'STT';
     protected $guarded = [''];
 
     public $timestamps = false;
