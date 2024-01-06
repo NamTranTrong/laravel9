@@ -25,7 +25,7 @@
                                 <input type="number" min="1" class="form-control" name="soluong" >
                             </div> 
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Chọn nhân viên</label>
+                                <label for="exampleInputEmail1" class="form-label">Chọn thuốc</label>
                                 <select class="form-select mb-3" name="mathuoc">
                                     @foreach ($medicines as $medicine)
                                         <option value="{{$medicine->MATHUOC}}">{{$medicine->TENTHUOC}}</option>

@@ -8,7 +8,7 @@
 <div class="col-12" style="height:100vh">
     <div class="bg-light rounded h-100 p-4 mt-3 mr-3">
         <h6 class="mb-4">Danh sách nhân viên</h6>
-        <a href="" class="btn btn-outline-primary">
+        <a href="{{route('add.staff')}}" class="btn btn-outline-primary">
             <span class="btn-inner--icon"><i class="fa-solid fa-plus"></i></span>
             <span class="btn-inner--text">Add</span>
         </a>
@@ -29,7 +29,7 @@
                             <td>{{$staff->HOTENNV}}</td>
                             <td>{{$staff->SDTNV}}</td>
                             <td>
-                                <a href="" class="btn btn-outline-primary">
+                                <a href="{{route('edit.staff',['manv' => $staff->MANV])}}" class="btn btn-outline-primary">
                                     <span class="btn-inner--icon"><i class="fa-solid fa-pencil"></i></span>
                                     <span class="btn-inner--text">Edit</span>
                                 </a>

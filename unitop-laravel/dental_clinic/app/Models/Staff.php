@@ -9,7 +9,7 @@ class Staff extends Model
 {
     use HasFactory;
     protected $table = "nhanvien";
-    protected $primaryKey = 'MAVN';
+    protected $primaryKey = 'MANV';
     protected $guarded = [''];
 
     public $timestamps = false;

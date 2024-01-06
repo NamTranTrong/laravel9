@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/login','AdminController@loginUser');
+
+Route::post('/login','AdminController@postLoginUser');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -112,6 +116,7 @@ Route::prefix('/plan')->group(function(){
     Route::get('/add/{mabn}',[
         'as' => "add.plan",
         'uses' => "AdminPlanController@add",
+        'middleware' => 'can:add-plan',
     ]);
 
     Route::post('/store/{mabn}',[
@@ -167,6 +172,28 @@ Route::prefix('/medicine')->group(function(){
         'as' => "list.medicine",
         'uses' => "AdminMedicineController@index",
     ]);
+
+    Route::get('/add',[
+        'as' => "add.medicine",
+        'uses' => "AdminMedicineController@add",
+        'middleware' => 'can:add-medicine'
+    ]);
+
+    Route::post('/store',[
+        'as' => "store.medicine",
+        'uses' => "AdminMedicineController@store",
+    ]);
+
+    Route::get('/edit/{mathuoc}',[
+        'as' => "edit.medicine",
+        'uses' => "AdminMedicineController@edit",
+        'middleware' => 'can:edit-medicine'
+    ]);
+
+    Route::post('/update/{mathuoc}',[
+        'as' => "update.medicine",
+        'uses' => "AdminMedicineController@update",
+    ]);
 });
 
 Route::prefix('/staff')->group(function(){
@@ -174,12 +201,56 @@ Route::prefix('/staff')->group(function(){
         'as' => "list.staff",
         'uses' => "AdminStaffController@index",
     ]);
+
+    Route::get('/add',[
+        'as' => "add.staff",
+        'uses' => "AdminStaffController@add",
+        'middleware' => 'can:add-staff',
+    ]);
+
+    Route::post('/store',[
+        'as' => "store.staff",
+        'uses' => "AdminStaffController@store",
+    ]);
+
+    Route::get('/edit/{manv}',[
+        'as' => "edit.staff",
+        'uses' => "AdminStaffController@edit",
+        'middleware' => 'can:edit-staff',
+    ]);
+
+    Route::post('/update/{manv}',[
+        'as' => "update.staff",
+        'uses' => "AdminStaffController@update",
+    ]);
 });
 
 Route::prefix('/dentist')->group(function(){
     Route::get('/',[
         'as' => "list.dentist",
         'uses' => "AdminDentistController@index",
+    ]);
+
+    Route::get('/add',[
+        'as' => "add.dentist",
+        'uses' => "AdminDentistController@add",
+        'middleware' => "can:add-dentist",
+    ]);
+
+    Route::post('/store',[
+        'as' => "store.dentist",
+        'uses' => "AdminDentistController@store",
+    ]);
+
+    Route::get('/edit/{mans}',[
+        'as' => "edit.dentist",
+        'uses' => "AdminDentistController@edit",
+        'middleware' => "can:edit-dentist",
+    ]);
+
+    Route::post('/update/{mans}',[
+        'as' => "update.dentist",
+        'uses' => "AdminDentistController@update",
     ]);
 });
 
@@ -194,11 +265,13 @@ Route::prefix('/apointment')->group(function(){
     Route::get('/',[
         'as' => "list.apointment",
         'uses' => "AdminApointmentController@index",
+        'middleware' => 'can:list-apointment'
     ]);
 
     Route::get('/delete/{mach}',[
         'as' => "delete.apointment",
         'uses' => "AdminApointmentController@delete",
+        'middleware' => 'can:delete-apointment'
     ]);
 });
 
@@ -207,6 +280,7 @@ Route::prefix('/payment')->group(function(){
     Route::get('/',[
         'as' => "list.paymentInfo",
         'uses' => "AdminPaymentInfoController@index",
+        'middleware' => "can:list-paymentinfo",
     ]);
 
     Route::get('/delete/{mach}',[
