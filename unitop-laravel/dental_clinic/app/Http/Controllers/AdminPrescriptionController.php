@@ -32,25 +32,19 @@ class AdminPrescriptionController extends Controller
         $plan = $this->plan->where('MAKH',$makh)->first();
         return view('admin.prescription.add',compact('medicines','plan'));
     }
-
     public function store($makh,Request $request){
         $mathuoc = $request->mathuoc;
-
         $existingPrescription = $this->prescription->where('MAKH', $makh)->where('MATHUOC', $mathuoc)->first();
-    
         if ($existingPrescription) {
             return redirect()->back()->with('error', 'Mã thuốc đã trùng hãy đổi loại thuốc khác !');
         }
-    
         $this->prescription->create([
             'MAKH' => $makh,
             'MATHUOC' => $request->mathuoc,
             'SOLUONG' => $request->soluong,
         ]);
-
         return redirect()->route('list.prescription',['makh' => $makh]);
     }
-
     public function edit($makh,$mathuoc){
         $medicines = $this->medicine->get();
         $prescription = $this->prescription->where([
@@ -91,4 +85,5 @@ class AdminPrescriptionController extends Controller
                 "code" => 200,
         ],200);
     }
+
 }
