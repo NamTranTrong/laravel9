@@ -1,0 +1,24 @@
+.main-img{
+    width: 200px;
+    height: 230px;
+}
+
+
+.thumnail {    
+    max-width: 400px;
+    display: flex; /* Hiển thị các ảnh theo hàng ngang */
+    overflow-x: auto; /* Bật cuộn ngang nếu nội dung vượt quá chiều rộng */
+    overflow-y: hidden;
+    height: 150px; /* Chiều cao của container */
+    gap: 10px; /* Khoảng cách giữa các ảnh */
+    padding: 5px; /* Khoảng cách bên trong container */
+    border-radius: 5px; /* Bo góc */
+}
+
+.thumnail img{
+    height: 100%; /* Chiều cao của ảnh bằng với container */
+    width: auto; /* Duy trì tỷ lệ ảnh */
+    object-fit: cover; /* Đảm bảo ảnh lấp đầy mà không bị méo */
+    border-radius: 3px; /* Bo góc nhẹ cho ảnh */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng đổ bóng */    
+}

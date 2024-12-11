@@ -1,10 +1,19 @@
 <!-- Header-->
 <header id="header" class="header">
-    <div class="top-left">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
-            <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
-            <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+    <div class="top-left" style="height:100%">
+        <div class="navbar-header" style="height:100%">
+
+            <div class="row">
+                <a class="" href="./" style="margin-top: -18px;">
+                    <img src="{{ asset('images/snapedit_1732360372304.png') }}" style="width:130px; height:70px;"
+                        alt="Logo">
+                </a>
+                <a id="menuToggle" class="menutoggle col-auto mx-auto">
+                    <i class="fa fa-bars"></i> 
+                </a>
+            </div>
+
+
         </div>
     </div>
     <div class="top-right">
@@ -19,7 +28,8 @@
                 </div>
 
                 <div class="dropdown for-notification">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="notification"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-bell"></i>
                         <span class="count bg-danger">3</span>
                     </button>
@@ -41,7 +51,8 @@
                 </div>
 
                 <div class="dropdown for-message">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="message"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-envelope"></i>
                         <span class="count bg-primary">4</span>
                     </button>
@@ -83,22 +94,25 @@
                 </div>
             </div>
 
-            <div class="user-area dropdown float-right">
-                <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
-                </a>
+            <div class="user-area dropdown float-right row">
+                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <img class="user-avatar rounded-circle" src="{{ asset('images/download.png') }}"
+                            style="height: 30px;width:30px" alt="User Avatar">
+                    </a>
+                    <span style="font-size: 13px">Hi, {{ auth()->user()->name }} !</span>
 
                 <div class="user-menu dropdown-menu">
                     <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
 
-                    <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
+                    <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span
+                            class="count">13</span></a>
 
                     <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-                    <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                    <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-power -off"></i>Logout</a>
                 </div>
             </div>
-
         </div>
     </div>
 </header>

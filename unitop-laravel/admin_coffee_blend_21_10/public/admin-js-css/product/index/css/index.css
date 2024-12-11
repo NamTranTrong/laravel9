@@ -1,0 +1,112 @@
+.contain-imgs {
+    position: relative;
+    height: 250px; /* Chiều cao ví dụ cho thẻ td */
+    width: 400px;  /* Chiều rộng ví dụ cho thẻ td */
+    vertical-align: top;
+    position: relative;
+}
+
+.main-image {
+    height: calc(100% - 33.33%); /* Chiều cao còn lại sau khi trừ thẻ div thumbnail */
+    width: 100%; /* Chiều rộng bằng thẻ td */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ẩn phần vượt quá kích thước */
+    /* background-color: #f9f9f9; Màu nền để dễ quan sát */
+}
+
+.main-image img {
+    max-width: 100%; /* Đảm bảo ảnh không vượt quá chiều rộng thẻ div */
+    max-height: 100%; /* Đảm bảo ảnh không vượt quá chiều cao thẻ div */
+    object-fit: cover; /* Giữ tỷ lệ ảnh mà không làm méo hình */
+}
+
+.thumbnail-container {
+    position: absolute;
+    bottom: 0; /* Đặt div nằm dưới cùng */
+    width: 90%; /* Chiều rộng bằng thẻ td */
+    height: 33.33%; /* Chiều cao bằng 1/3 của thẻ td */
+    display: flex; /* Đặt các ảnh xếp ngang hàng */
+    gap: 5px; /* Khoảng cách padding giữa các ảnh */
+    overflow-x: auto; /* Cho phép scroll ngang nếu có nhiều ảnh */
+    overflow-y: hidden; /* Ẩn scroll dọc */
+    padding: 0px 5px 5px 0px;
+    box-sizing: border-box; /* Bao gồm padding vào kích thước */
+}
+
+.thumbnail-container img {
+    height: 100%; /* Chiều cao ảnh tự động vừa với chiều cao của div */
+    object-fit: cover; /* Giữ tỷ lệ của ảnh mà không làm méo hình */
+    border: 1px solid #ddd; /* Đường viền nhỏ quanh ảnh */
+    border-radius: 4px; /* Bo tròn góc ảnh */
+}
+
+
+.description {
+    max-height: 100px; /* Chiều cao tối đa */
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    line-height: 1.5em; /* Khoảng cách giữa các dòng */
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Hiển thị tối đa 4 dòng */
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Đảm bảo modal ở trên cùng */
+}
+
+.modal-content {
+    background: white;
+    padding: 30px; /* Tăng khoảng padding để nội dung thoải mái hơn */
+    border-radius: 10px; /* Bo góc tròn hơn */
+    width: 50%;
+    max-width: 600px;
+    max-height: 70%;
+    overflow-y: auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Tăng bóng đổ cho hiệu ứng mềm mại */
+    position: relative;
+}
+
+
+.modal-body {
+    margin-top: 16px;
+    font-size: 16px; /* Cải thiện font cho dễ đọc */
+    line-height: 1.5; /* Khoảng cách giữa các dòng */
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 35px; /* Tăng kích thước nút đóng để dễ nhìn hơn */
+    font-weight: bold;
+    color: #333; /* Màu sắc nút đóng dễ nhìn hơn */
+    cursor: pointer;
+    transition: color 0.3s ease; /* Thêm hiệu ứng chuyển màu khi hover */
+    top: 5px; /* Đưa nút đóng gần lên trên */
+}
+
+.close-btn:hover {
+    color: #e74c3c; /* Màu đỏ khi hover */
+}
+
+.read-more{
+    color : #2dbfeb;
+}
+.read-more:hover{
+    color : #1b36bb;
+}
+
+
