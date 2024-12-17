@@ -1,0 +1,13 @@
+
+    /* Tăng kích thước checkbox */
+    .large-checkbox {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Căn giữa nội dung trong các ô */
+    .table td, 
+    .table th {
+        vertical-align: middle;
+        text-align: center;
+    }

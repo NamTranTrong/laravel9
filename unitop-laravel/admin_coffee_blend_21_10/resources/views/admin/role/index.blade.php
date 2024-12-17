@@ -127,5 +127,5 @@
 @endsection
 
 @section('js')
-    {{--  <script src="{{asset('admin-js-css/user/delete/delete.js')}}"></script>  --}}
+    <script src="{{asset('admin-js-css/role/delete.js')}}"></script>
 @endsection

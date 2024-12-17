@@ -10,35 +10,35 @@
 
 
 @section('content')
-    @include('partials.breadcrumbs', ['name' => 'Setting', 'key' => 'Edit'])
+    @include('partials.breadcrumbs', ['name' => 'Slider', 'key' => 'Create'])
     <div class="content">
         <div class="animated fadeIn">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Chỉnh Sửa Setting</strong>
+                            <strong class="card-title">Thêm Setting</strong>
                         </div>
-                        <form action="{{ route('setting.update', ['id' => $setting->id]) . '?type=' . request()->type }}"
-                            method="POST">
+                        <form action="{{ route('setting.store')."?type=".request()->type }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body card-block">
                                 <div class="form-group"><label for="company" class=" form-control-label">Config Key<span
-                                            style="color:red">&nbsp;*</span></label><input
-                                        value="{{ $setting->config_key }}" type="text" name="config_key"
-                                        placeholder="Nhập Config Key" class="form-control ">
+                                            style="color:red">&nbsp;*</span></label><input value="{{ old('config_key') }}"
+                                        type="text" name="config_key" placeholder="Nhập Config Key"
+                                        class="form-control ">
                                 </div>
-                                @if ($setting->type === 'text')
-                                    <div class="form-group"><label for="company" class=" form-control-label">Config
-                                            Value<span style="color:red">&nbsp;*</span></label><input
-                                            value="{{ $setting->config_value }}" type="text" name="config_value"
+                                @if (request()->type === 'text')
+                                    <div class="form-group"><label for="company"
+                                            class=" form-control-label">Config Value<span
+                                                style="color:red">&nbsp;*</span></label><input
+                                            value="{{ old('config_value') }}" type="text" name="config_value"
                                             placeholder="Nhập Config Value" class="form-control ">
                                     </div>
-                                @elseif ($setting->type === 'textarea')
-                                    <div class="form-group"><label for="company" class=" form-control-label">Config
-                                            Value<span style="color:red">&nbsp;*</span></label>
-                                        <textarea class="form-control" name="config_value" id="" cols="20" rows="4"
-                                            placeholder="Nhập Config Value">{{ $setting->config_value }}</textarea>
+                                @elseif (request()->type === 'textarea')
+                                    <div class="form-group"><label for="company"
+                                            class=" form-control-label">Config Value<span
+                                                style="color:red">&nbsp;*</span></label>
+                                        <textarea class="form-control" name="config_value" id="" cols="20" rows="4" placeholder="Nhập Config Value"></textarea>
                                     </div>
                                 @endif
                                 <div class="mt-4 form-actions form-group">

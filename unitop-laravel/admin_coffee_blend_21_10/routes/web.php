@@ -40,12 +40,14 @@ Route::prefix('/admin')->group(function(){
         Route::get('/',[
             'as' => 'category.index',
             'uses' => "AdminCategoryController@index",
+            'middleware' =>  'can:category-index',
         ]);
     
     
         Route::get('/create',[
             'as' => 'category.add',
             'uses' => "AdminCategoryController@add",
+            'middleware' =>  'can:category-add',
         ]);
     
         Route::post('/store',[
@@ -56,6 +58,7 @@ Route::prefix('/admin')->group(function(){
         Route::get('/edit/{id}',[
             'as' => 'category.edit',
             'uses' => "AdminCategoryController@edit",
+            'middleware' =>  'can:category-edit',
         ]);
     
         Route::post('/update/{id}',[
@@ -287,6 +290,38 @@ Route::prefix('/admin')->group(function(){
         Route::get('/delete/{id}',[
             'as' => 'role.delete',
             'uses' => "AdminRoleController@delete",
+        ]);
+    });
+
+    Route::prefix('/permission')->group(function(){
+        Route::get('/index',[
+            'as' => 'permission.index',
+            'uses' => 'AdminPermissionController@index',
+        ]); 
+
+        Route::get('/create',[
+            'as' => 'permission.add',
+            'uses' => "AdminPermissionController@add",
+        ]);
+    
+        Route::post('/store',[
+            'as' => "permission.store",
+            'uses' => "AdminPermissionController@store",
+        ]);
+    
+        Route::get('/edit/{id}',[
+            'as' => 'permission.edit',
+            'uses' => "AdminPermissionController@edit",
+        ]);
+    
+        Route::post('/update/{id}',[
+            'as' => 'permission.update',
+            'uses' => "AdminPermissionController@update",
+        ]);
+    
+        Route::get('/delete/{id}',[
+            'as' => 'permission.delete',
+            'uses' => "AdminPermissionController@delete",
         ]);
     });
 });

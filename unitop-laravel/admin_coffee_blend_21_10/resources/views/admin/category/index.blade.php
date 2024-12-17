@@ -85,6 +85,7 @@
                                                         <td class="col-8">{{$category->name}}</td>
                                                         <td class="col-3">
                                                             <div class="d-flex justify-content-center">
+                                                                
                                                                 <span class="mx-2">
                                                                     <a  data-url="{{route('category.delete',['id' => $category->id])}}" class="action_delete">
                                                                         <button type="button" class="btn btn-warning"><i class="fa-solid fa-trash"></i>&nbspDelete</button>
