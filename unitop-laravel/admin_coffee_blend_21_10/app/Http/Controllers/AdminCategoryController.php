@@ -20,7 +20,7 @@ class AdminCategoryController extends Controller
     }
     public function index(Request $request)
     {
-        $paginateValue = $request->input('paginateValue',3);
+        $paginateValue = $request->input('paginateValue',10);
         $categories = $this->category->latest()->paginate($paginateValue);
         if ($request->ajax()) {
             return response()->json([
@@ -55,7 +55,7 @@ class AdminCategoryController extends Controller
     }
 
     public function update(Request $request,$id){
-        $this->category->find($id)->update([
+        $this->category->find(id: $id)->update([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
             'parent_id' => $request->parent_id,

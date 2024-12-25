@@ -4,6 +4,9 @@
     <title>Create Category</title>
 @endsection
 
+@section('css')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+@endsection
 
 @section('content')
     @include('partials.breadcrumbs', ['name' => 'Category', 'key' => 'Create'])
@@ -24,8 +27,8 @@
                                 </div>
                                 <div class="form-group"><label for="company" class=" form-control-label">Danh mục cha<span
                                             style="color:red">&nbsp;*</span></label>
-                                    <select class="form-control" name="parent_id" id="">
-                                        <option value="0">---- Chọn danh mục cha ---</option>
+                                    <select class="form-control js-example-tags" name="parent_id" id="">
+                                        <option value="">----Chọn danh mục cha----</option>
                                         {!! $htmlSelect !!}
                                     </select>
                                 </div>
@@ -41,4 +44,9 @@
             </div>
         </div><!-- .animated -->
     </div>
+@endsection
+
+@section('js')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="{{ asset('admin-js-css/category/create/create.js') }}"></script>
 @endsection
