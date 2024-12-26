@@ -28,6 +28,9 @@
                 <li class="get_active">
                     <a href="{{route('role.index')}}"><i class="fa-solid fa-users-gear"></i>&nbsp;&nbsp;Role </a>
                 </li>
+                <li class="get_active">
+                    <a href="{{route('blog.index')}}"><i class="fa-regular fa-newspaper"></i>&nbsp;&nbsp;Blog </a>
+                </li>
                 <li class="get_active menu-item-has-children dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa-solid fa-user-lock"></i>&nbsp;&nbsp;Permission</a>
                     <ul class="sub-menu children dropdown-menu"><li class="subtitle"> <i class="menu-icon fa fa-th"></i>Forms</li>

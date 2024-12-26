@@ -64,7 +64,7 @@
                                 <div class="form-group"><label for="company" class=" form-control-label">Ảnh Sản Phẩm <span
                                             style="color:red">&nbsp;*</span></label>
                                     <input type="file" id="file-input" name="feature_image_path"
-                                        class="form-control-file" value="">
+                                        class="form-control-file">
                                 </div>
                                 <div class="form-group">
                                     <img class="main-img" src="{{ $product->feature_image_path }}" alt="">

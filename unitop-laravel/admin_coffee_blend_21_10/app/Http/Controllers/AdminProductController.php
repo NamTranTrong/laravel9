@@ -105,7 +105,6 @@ class AdminProductController extends Controller
     public function edit($id){
         $product = $this->product->find($id);
         $htmlSelect = $this->categoryRecusive->CategoryRecusiveEdit($product->category_id);
-        // dd($htmlSelect);
         return view('admin.product.edit',compact('product','htmlSelect'));
     }
 

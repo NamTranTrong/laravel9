@@ -121,6 +121,7 @@ ol {
 	font-size: 24px;
 	font-weight: 700;
 	color: #e7ab3c;
+	margin-bottom: 30px;
 }
 
 .section-title .product-price span {
@@ -130,7 +131,7 @@ ol {
 }
 
 .section-title h2 {
-	color: #252525;
+	color: #fff;
 	font-size: 36px;
 	font-weight: 700;
 	margin-bottom: 38px;
@@ -1182,7 +1183,10 @@ ol {
 }
 
 .product-item .pi-pic img {
-	min-width: 100%;
+	/* min-width: 100%; */
+	height: 270px;
+	width: 250px;
+	border-radius: 5%;
 }
 
 .product-item .pi-pic .sale {
@@ -1287,11 +1291,13 @@ ol {
 	padding-bottom: 80px;
 	margin-left: 65px;
 	margin-right: 65px;
+	height: 505px;
 }
 
 .countdown-timer {
 	text-align: center;
-	margin-bottom: 50px;
+	margin-bottom: 40px;
+	margin-top: 27%;
 }
 
 .countdown-timer .cd-item {
@@ -1338,6 +1344,7 @@ ol {
 
 .instagram-photo {
 	overflow: hidden;
+	padding-top:100px;
 }
 
 .instagram-photo .insta-item {
@@ -1407,7 +1414,7 @@ ol {
 }
 
 .latest-blog .section-title {
-	margin-bottom: 55px;
+	margin-bottom: 30px;
 }
 
 .single-latest-blog {
@@ -1415,7 +1422,8 @@ ol {
 }
 
 .single-latest-blog img {
-	min-width: 100%;
+	width: 350px;
+	height: 300px;
 }
 
 .single-latest-blog .latest-text {
@@ -1504,7 +1512,6 @@ ol {
 
 .owl-carousel .owl-item img {
 	display: block;
-	width: auto;
 }
 
 /*---------------------
@@ -1740,8 +1747,13 @@ ol {
 	margin-bottom: 26px;
 }
 
-.filter-widget .filter-catagories li {
+
+.filter-widget .filter-catagories {
 	list-style: none;
+}
+
+.filter-widget .filter-catagories ul {
+	list-style: disc;
 }
 
 .filter-widget .filter-catagories li a {
@@ -4476,7 +4488,7 @@ ol {
 .menu-child {
     position: absolute;
     width: 100%;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.95);
     z-index: 999;
     left: 0;
     display: flex;
@@ -4552,11 +4564,31 @@ ol {
   }
 
  .best-seller-product-image{
-	margin-top: 62px;
+	/* margin-top: 62px; */
  }
 
  .best-seller-product-image img{
 	width: 362px;
+ }
+
+ .collapse{
+	margin-left:20px;
+ }
+
+ .collapse ul{
+	list-style: circle;
+ }
+
+ .category_name{
+	height: 40px;
+	display: flex;
+	align-items: center;
+	padding: 20px 0 20px 0;
+ }
+
+ .category_name h4{
+	font-size:18px;
+	font-weight: 800;
  }
 
 

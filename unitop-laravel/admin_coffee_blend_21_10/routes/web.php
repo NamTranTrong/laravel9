@@ -324,5 +324,49 @@ Route::prefix('/admin')->group(function(){
             'uses' => "AdminPermissionController@delete",
         ]);
     });
+
+    Route::prefix('/blog')->group(function(){
+        Route::get('/',[
+            'as' => 'blog.index',
+            'uses' => "AdminBlogController@index",
+        ]);
+    
+    
+        Route::get('/create',[
+            'as' => 'blog.add',
+            'uses' => "AdminBlogController@add",
+        ]);
+    
+        Route::post('/store',[
+            'as' => "blog.store",
+            'uses' => "AdminBlogController@store",
+        ]);
+    
+        Route::get('/edit/{id}',[
+            'as' => 'blog.edit',
+            'uses' => "AdminBlogController@edit",
+        ]);
+    
+        Route::post('/update/{id}',[
+            'as' => 'blog.update',
+            'uses' => "AdminBlogController@update",
+        ]);
+    
+        Route::get('/delete/{id}',[
+            'as' => 'blog.delete',
+            'uses' => "AdminBlogController@delete",
+        ]);
+    
+        Route::post('/delete-multiple',[
+            'as' => 'blog.deleteMultiple',
+            'uses' => "AdminBlogController@deleteMultiple",
+        ]);
+    
+        Route::get('/search',[
+            'as' => 'blog.search',
+            'uses' => 'AdminBlogController@search',
+        ]);
+    
+    });
 });
 

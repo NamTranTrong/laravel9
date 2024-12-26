@@ -26,9 +26,9 @@ class ProductAddRequest extends FormRequest
             'price' => 'required',
             'content' => 'required',
             'category_id' => 'required',
-            'feature_img_path' => 'required',
+            'feature_image_path' => 'required',
             'image_path' => 'required',
-            'tag_id' => 'required',
+            'tags' => 'required',
         ];
     }
 
@@ -39,9 +39,9 @@ class ProductAddRequest extends FormRequest
             'price.required' => 'Bạn chưa nhập giá Sản Phẩm',
             'content.required' => 'Bạn chưa nhập nội dung Sản Phẩm',
             'category_id.required' => 'Bạn chưa chọn danh mục cha',
-            'feature_img_path.required' => 'Hãy chọn ảnh Sản Phẩm',
+            'feature_image_path.required' => 'Hãy chọn ảnh Sản Phẩm',
             'image_path.required' => 'Hãy chọn ảnh chi tiết Sản Phẩm',
-            'tag_id.required' => 'Nhập ít nhất một tag cho Sản Phẩm',
+            'tags.required' => 'Nhập ít nhất một tag cho Sản Phẩm',
         ];
     }
 }
