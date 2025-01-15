@@ -8,10 +8,13 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Blog;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
+
     public function index(){
+        // dd(Session::all());  // Kiểm tra tất cả dữ liệu trong session
         $categories = Category::where('parent_id',0)->get();
         $sliders = Slider::latest()->get();
         $products = Product::all(); 
@@ -35,4 +38,5 @@ class HomeController extends Controller
         }
         return view('product.shop',compact('lv2Categories','categories','products'));
     }
+
 }

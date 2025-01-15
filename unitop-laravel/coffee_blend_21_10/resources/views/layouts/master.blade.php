@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{ asset('coffee_blend/css/slicknav.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('coffee_blend/css/style.css') }}" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    @yield('meta-csrf')
     @yield('css')
 </head>
 
@@ -42,7 +44,13 @@
 <script src="{{ asset('coffee_blend/js/jquery.slicknav.js') }}"></script>
 <script src="{{ asset('coffee_blend/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('coffee_blend/js/main.js') }}"></script>
-<script src="{{ asset('js-css/header-fixed.js') }}""></script>
+<script src="{{ asset('js-css/header-fixed.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src={{asset('js-css/cart/cart.js')}}></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    var baseUrl = "{{ $baseUrl }}"; // Lấy URL gốc của public folder
+</script>
 @yield('js')
 
 </html>

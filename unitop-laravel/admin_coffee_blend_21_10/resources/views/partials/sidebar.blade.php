@@ -37,6 +37,9 @@
                         <li><i class="menu-icon fa fa-th"></i><a href="{{route('permission.index')}}">List & Add Permission</a></li>
                     </ul>
                 </li>
+                <li class="get_active">
+                    <a href="{{route('order.index')}}"><i class="fa-regular fa-clipboard"></i>&nbsp;&nbsp;Order </a>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

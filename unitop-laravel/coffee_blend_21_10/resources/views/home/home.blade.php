@@ -9,7 +9,9 @@
 
 @section('content')
     @include('home.components.slider')
-
+    <div id="cart-success-message" class="cart-success-message">
+        <i class="far fa-check-circle fa-lg" style="color: #63E6BE;"></i><span>Đã thêm vào giỏ hàng!</span>
+    </div>
     <!-- Banner Section Begin -->
     <div class="banner-section spad">
         <div class="container-fluid">
@@ -75,14 +77,14 @@
                                     <i class="icon_heart_alt"></i>
                                 </div>
                                 <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                    <li class="w-icon active"><a href="#" id="add-to-card" data-id="{{ $bestSellerProduct->id }}"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="{{route('product.getProduct',['id' => $bestSellerProduct->id ])}}">+ Quick View</a></li>
                                     <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                 </ul>
                             </div>
                             <div class="pi-text">
                                 <div class="catagory-name">{{$bestSellerProduct->category->name}}</div>
-                                <a href="#">
+                                <a href="{{route('product.getProduct',['id' => $bestSellerProduct->id ])}}">
                                     <h5>{{$bestSellerProduct->name}}</h5>
                                 </a>
                                 <div class="product-price">
@@ -152,12 +154,11 @@
                                    {{$blog->created_at}}
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="{{route('blog.detail',['blogId' => $blog->id])}}">
                                 <h4>{{$blog->name}}</h4>
                             </a>
                             <p>
                                 {!! \Illuminate\Support\Str::limit(strip_tags($blog->content), 100) !!}
-                                <a href="">xem thêm</a>
                             </p>
                         </div>
                     </div>
@@ -173,8 +174,8 @@
                                 <img src="{{ asset('coffee_blend/img/icon-1.png') }}" alt="">
                             </div>
                             <div class="sb-text">
-                                <h6>Free Shipping</h6>
-                                <p>For all order over 99$</p>
+                                <h6>Miễn phí ship</h6>
+                                <p>Cho tất cả đơn hàng trên 100k</p>
                             </div>
                         </div>
                     </div>
@@ -184,8 +185,8 @@
                                 <img src="{{ asset('coffee_blend/img/icon-2.png') }}" alt="">
                             </div>
                             <div class="sb-text">
-                                <h6>Delivery On Time</h6>
-                                <p>If good have prolems</p>
+                                <h6>Giao hàng đúng hẹn</h6>
+                                <p>Nếu hàng hóa có vấn đề</p>
                             </div>
                         </div>
                     </div>
@@ -195,8 +196,8 @@
                                 <img src="{{ asset('coffee_blend/img/icon-1.png') }}" alt="">
                             </div>
                             <div class="sb-text">
-                                <h6>Secure Payment</h6>
-                                <p>100% secure payment</p>
+                                <h6>Thanh toán</h6>
+                                <p>Thanh toán an toàn 100%</p>
                             </div>
                         </div>
                     </div>
@@ -206,7 +207,4 @@
     </section>
     <!-- Latest Blog Section End -->
 @endsection
-
-
-
 </html>

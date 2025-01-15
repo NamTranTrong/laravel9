@@ -25,7 +25,7 @@
                                 <div class="form-group"><label for="company" class=" form-control-label">Danh mục cha<span
                                             style="color:red">&nbsp;*</span></label>
                                     <select class="form-control" name="parent_id" id="">
-                                        <option value="">---- Danh mục cha ---</option>
+                                        <option value="0">---- Danh mục cha ---</option>
                                         {!! $htmlSelect !!}
                                     </select>
                                 </div>

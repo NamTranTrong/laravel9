@@ -1,7 +1,8 @@
 <nav class="nav-headerMenu">
     <ul class="clearfix">
-        @foreach ($categories as $category)
-            <li @if ($category->categoryChild->count()) class="has-child" @endif>{{ $category->name }}
+        @foreach ($menu as $category)
+            <li @if ($category->categoryChild->count()) class="has-child"  @endif>
+                <a href="{{ $category->url ? url($category->url) : '#' }}" class="category-lv1">{{ $category->name }}</a>
                 @if ($category->categoryChild->count())
                     <i class="fas fa-sort-down fa-xs" style="margin:0 0 3px 5px"></i>
                 @endif
@@ -14,7 +15,7 @@
                                     @if ($categoryChildItem->categoryChild->count())
                                         @foreach ($categoryChildItem->categoryChild as $categoryChildItemLv2)
                                             <li class="lv3-title">
-                                                <a href="">{{ $categoryChildItemLv2->name }}</a>
+                                                <a href="{{route('collection.get-category',['id' => $categoryChildItemLv2->id] )}}">{{ $categoryChildItemLv2->name }}</a>
                                             </li>
                                         @endforeach
                                     @endif

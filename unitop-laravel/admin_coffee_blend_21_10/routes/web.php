@@ -368,5 +368,28 @@ Route::prefix('/admin')->group(function(){
         ]);
     
     });
+
+    Route::prefix('/order')->group(function(){
+        Route::get('/',[
+            'as' => 'order.index',
+            'uses' => "AdminOrderController@index",
+        ]);
+    
+        Route::get('/create',[
+            'as' => 'order.add',
+            'uses' => "AdminOrderController@add",
+        ]);
+    
+        Route::post('/change-status/{orderId}',[
+            'as' => 'order.changeStatus',
+            'uses' => "AdminOrderController@changeStatus",
+        ]);
+    
+        Route::get('/delete/{id}',[
+            'as' => 'order.delete',
+            'uses' => "AdminOrderController@delete",
+        ]);
+    
+    });
 });
 

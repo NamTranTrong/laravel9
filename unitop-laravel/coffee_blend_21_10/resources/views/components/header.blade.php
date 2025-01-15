@@ -1,4 +1,6 @@
-
+@php
+    $baseUrl = 'http://127.0.0.1:8081';
+@endphp
 
 
 <!-- Header Section Begin -->
@@ -8,15 +10,28 @@
             <div class="ht-left">
                 <div class="mail-service">
                     <i class=" fa fa-envelope"></i>
-                    hello.colorlib@gmail.com
+                    {!! getConfigValueSetting('contact-email') !!}
                 </div>
                 <div class="phone-service">
                     <i class=" fa fa-phone"></i>
-                    +65 11.188.888
+                    {{ getConfigValueSetting('phone-contact') }}
                 </div>
             </div>
             <div class="ht-right">
-                <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                @if (Auth::check())
+                    <a href="#" class="login-panel"><i class="fa fa-user"></i>
+                        Hi,{{ Auth::user()->name }}! <span style="color:aqua;cursor:pointer;text-decoration: underline;"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng
+                            xuất</span>
+                    </a>
+                    <form id="logout-form" action="{{ route('login.index') }}" style="display: none;">
+                        @csrf
+                    </form>
+                @else
+                    <a href="{{ route('login.index') }}" class="login-panel"><i class="fa fa-user"></i>
+                        Đăng nhập
+                    </a>
+                @endif
                 <div class="lan-selector">
                     <select class="language_drop" name="countries" id="countries" style="width:300px;">
                         <option value='yt' data-image="{{ asset('coffee_blend/img/flag-1.jpg') }}"
@@ -32,96 +47,80 @@
                     <a href="#"><i class="ti-pinterest"></i></a>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="inner-header">
-            <div class="row">
-                <div class="col-lg-2 col-md-2">
-                    <div class="logo">
-                        <a href="./index.html">
-                            <img src="{{ asset('coffee_blend/img/logo.png') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-7 col-md-7">
-                    <div class="advanced-search">
-                        <button type="button" class="category-btn">All Categories</button>
-                        <div class="input-group">
-                            <input type="text" placeholder="What do you need?">
-                            <button type="button"><i class="ti-search"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 text-right col-md-3">
-                    <ul class="nav-right">
-                        <li class="heart-icon">
-                            <a href="#">
-                                <i class="icon_heart_alt"></i>
-                                <span>1</span>
-                            </a>
-                        </li>
-                        <li class="cart-icon">
-                            <a href="#">
-                                <i class="icon_bag_alt"></i>
-                                <span>3</span>
-                            </a>
-                            <div class="cart-hover">
-                                <div class="select-items">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td class="si-pic"><img
-                                                        src="{{ asset('coffee_blend/img/select-product-1.jpg') }}"
-                                                        alt=""></td>
-                                                <td class="si-text">
-                                                    <div class="product-selected">
-                                                        <p>$60.00 x 1</p>
-                                                        <h6>Kabino Bedside Table</h6>
-                                                    </div>
-                                                </td>
-                                                <td class="si-close">
-                                                    <i class="ti-close"></i>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="si-pic"><img
-                                                        src="{{ asset('coffee_blend/img/select-product-2.jpg') }}"
-                                                        alt=""></td>
-                                                <td class="si-text">
-                                                    <div class="product-selected">
-                                                        <p>$60.00 x 1</p>
-                                                        <h6>Kabino Bedside Table</h6>
-                                                    </div>
-                                                </td>
-                                                <td class="si-close">
-                                                    <i class="ti-close"></i>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="select-total">
-                                    <span>total:</span>
-                                    <h5>$120.00</h5>
-                                </div>
-                                <div class="select-button">
-                                    <a href="#" class="primary-btn view-card">VIEW CARD</a>
-                                    <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="cart-price">$150.00</li>
-                    </ul>
-                </div>
-            </div>
+
         </div>
     </div>
     <div class="nav-item">
         <div class="container">
-            @include('components.header-menu')
+            <div class="inner-header">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2">
+                        <div class="logo">
+                            <a href="./index.html">
+                                <img src="/coffee_blend/img/logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8">
+                        @include('components.header-menu')
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                        <ul class="nav-right">
+                            <li class="cart-icon">
+                                <a href="{{ route('cart.shoppingCart') }}">
+                                    <i class="icon_bag_alt"></i>
+
+                                    <span> {{ $totals['total_quantity'] }}</span>
+                                    <!-- Hiển thị số lượng sản phẩm -->
+                                </a>
+                                <div class="cart-hover">
+                                    <div class="select-items">
+                                        <table>
+                                            <tbody>
+                                                @if (!empty($cart))
+                                                    @foreach ($cart as $item)
+                                                        <tr>
+                                                            <td class="si-pic"><img
+                                                                    src="{{$baseUrl.$item['image']}}"
+                                                                    alt=""></td>
+                                                            <td class="si-text">
+                                                                <div class="product-selected">
+                                                                    <p>{{number_format($item['price'],0,'.',',')}}₫ x
+                                                                        {{$item['quantity']}}</p>
+                                                                    <h6>{{$item['name']}}</h6>
+                                                                </div>
+                                                            </td>
+                                                            <td class="si-close">
+                                                                <i class="ti-close" data-id="17"></i>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endif
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="select-total">
+                                        <span>Total:</span>
+                                        <h5>{{number_format($totals['total_price'],0,'.',',')}}₫</h5> <!-- Hiển thị tổng tiền -->
+                                    </div>
+                                    <div class="select-button">
+                                        <a href="http://127.0.0.1:8000/cart/shopping-cart"
+                                            class="primary-btn view-card">View
+                                            Cart</a>
+                                        <a href="http://127.0.0.1:8000/order"
+                                            class="primary-btn checkout-btn">Checkout</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="cart-price">{{number_format($totals['total_price'],0,'.',',')}}₫</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <div id="mobile-menu-wrap"></div>
         </div>
     </div>
 </header>
 <!-- Header End -->
+
