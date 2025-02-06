@@ -13,6 +13,13 @@ class AdminController extends Controller
     public function __construct(User $user){
         $this->user = $user;
     }
+
+    public function index(){
+        if(empty(auth()->user())){
+            return view('login');
+        }
+        return view('home');
+    }
     public function login(){
         return view('login');
     }
@@ -23,7 +30,7 @@ class AdminController extends Controller
             'email' => $request->email,
             'password' => $request->password,   
         ],$rememeber)){
-            return redirect()->route('category.index');
+            return view('home');
         }
         return back()->withErrors([
             'fail' => 'Thông tin đăng nhập không chính xác.',

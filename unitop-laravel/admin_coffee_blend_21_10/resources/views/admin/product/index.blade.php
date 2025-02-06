@@ -28,7 +28,7 @@
                                 <div class="row pb-3">
                                     <div class="col-sm-5">
                                         <div class="dataTables_length" id="bootstrap-data-table_length"><label>Show entries
-                                                <select class="form-control form-control-sm" id="mySelect">
+                                                <select class="form-control form-control-sm" id="mySelect">                                            
                                                     <option value="">All</option>
                                                     <option {{ request()->get('paginateValue') == 2 ? 'selected' : '' }}
                                                         value="2">2</option>

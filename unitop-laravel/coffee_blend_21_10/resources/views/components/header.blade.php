@@ -105,10 +105,10 @@
                                         <h5>{{number_format($totals['total_price'],0,'.',',')}}₫</h5> <!-- Hiển thị tổng tiền -->
                                     </div>
                                     <div class="select-button">
-                                        <a href="http://127.0.0.1:8000/cart/shopping-cart"
+                                        <a href="{{route('cart.shoppingCart')}}"
                                             class="primary-btn view-card">View
                                             Cart</a>
-                                        <a href="http://127.0.0.1:8000/order"
+                                        <a href="{{route('order.index')}}"
                                             class="primary-btn checkout-btn">Checkout</a>
                                     </div>
                                 </div>

@@ -20,7 +20,7 @@ class AdminCategoryController extends Controller
     }
     public function index(Request $request)
     {
-        $paginateValue = $request->input('paginateValue',10);
+        $paginateValue = $request->input('paginateValue',3);
         $categories = $this->category->latest()->paginate($paginateValue);
         if ($request->ajax()) {
             return response()->json([

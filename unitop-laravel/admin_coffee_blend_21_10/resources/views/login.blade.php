@@ -274,6 +274,7 @@
 
 <script>
     $(document).ready(function() {
+        alert('Register or Login with account : "Email');
         $('.login-info-box').fadeOut();
         $('.login-show').addClass('show-log-panel');
 

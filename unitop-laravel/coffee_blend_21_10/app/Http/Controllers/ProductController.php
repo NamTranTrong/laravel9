@@ -22,10 +22,10 @@ class ProductController extends Controller
 
     public function getProduct($productId){
         $averageRating = (float)$this->productFeedBack->where('product_id',$productId )->avg('rating');
-        $totalFeedBack = $this->productFeedBack->count();
+        $totalFeedBack = $this->productFeedBack->where('product_id',$productId)->count();
         $product = $this->product->find($productId);
         $relatedProducts = $this->product->where('category_id',$product->category_id)->inRandomOrder()->get();
-        $productFeedBacks = $this->productFeedBack->all();
+        $productFeedBacks = $this->productFeedBack->where('product_id',$productId)->get();
 
         return view('product.product-detail',compact('product','relatedProducts','productFeedBacks','totalFeedBack','averageRating'));
     }

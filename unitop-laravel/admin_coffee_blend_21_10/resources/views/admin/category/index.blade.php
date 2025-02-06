@@ -57,7 +57,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <table id="bootstrap-data-table"
-                                            class="table table-striped table-bordered dataTable no-footer table-category" role="grid"
+                                            class="table table-striped table-bordered dataTable no-footer table-model" role="grid"
                                             aria-describedby="bootstrap-data-table_info">
                                             <thead>
                                                 <tr role="row">
@@ -121,4 +121,7 @@
     <script src="{{asset('admin-js-css/category/delete/delete_multiple.js')}}"></script>
     <script src="{{asset('admin-js-css/category/index/paginate.js')}}"></script>
     <script src="{{asset('admin-js-css/category/index/search.js')}}"></script>
+    <script>
+        alert('Functions : CRUD, Delete-multiple, Search, paginate entries') 
+    </script>
 @endsection

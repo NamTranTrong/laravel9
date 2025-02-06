@@ -208,3 +208,9 @@
     <!-- Latest Blog Section End -->
 @endsection
 </html>
+@section('js')
+    <script>
+        alert('Do giới hạn dung lượng hosting free 20MB nên em sẽ demo các chức năng chính: Collection, Detail, Cart, Cart-Icon, Blog, Rating, Login, Logout, Order, Pay');
+    </script>
+@endsection
+

@@ -31,9 +31,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
+// Route::get('/home', function () {
+//     return view('home');
+// });
+
+Route::get('/home',[
+    'as' => 'home.index',
+    'uses' => "AdminController@index",
+]);
 
 Route::prefix('/admin')->group(function(){
     Route::prefix('/category')->group(function(){

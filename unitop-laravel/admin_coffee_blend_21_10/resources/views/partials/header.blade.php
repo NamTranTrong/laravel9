@@ -9,7 +9,7 @@
                         alt="Logo">
                 </a>
                 <a id="menuToggle" class="menutoggle col-auto mx-auto">
-                    <i class="fa fa-bars"></i> 
+                    <i class="fa fa-bars"></i>
                 </a>
             </div>
 
@@ -95,12 +95,14 @@
             </div>
 
             <div class="user-area dropdown float-right row">
-                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        <img class="user-avatar rounded-circle" src="{{ asset('images/download.png') }}"
-                            style="height: 30px;width:30px" alt="User Avatar">
-                    </a>
-                    <span style="font-size: 13px">Hi, {{ auth()->user()->name }} !</span>
+                <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <img class="user-avatar rounded-circle" src="{{ asset('images/download.png') }}"
+                        style="height: 30px;width:30px" alt="User Avatar">
+                </a>
+                @if (auth()->check())
+                    <span style="font-size: 13px">Hi, {{ auth()->user()->name ?? 'Guest' }}!</span>
+                @endif
 
                 <div class="user-menu dropdown-menu">
                     <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
